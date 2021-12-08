@@ -19,14 +19,31 @@ class Body extends StatelessWidget {
         children: [
           HeaderWithSearch(size: size),
           TitleWiteMoreBtn(press: () {}, title: 'Recomended'),
-
-          // 40% of width
-          RecomendPlantCard(
-              image: "assets/images/image_1.png",
-              title: "samantha",
-              country: "russia",
-              price: 444,
-              press: () {})
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                RecomendPlantCard(
+                    image: "assets/images/image_1.png",
+                    title: "samantha",
+                    country: "russia",
+                    price: 440,
+                    press: () {}),
+                RecomendPlantCard(
+                    image: "assets/images/image_1.png",
+                    title: "samantha",
+                    country: "russia",
+                    price: 440,
+                    press: () {}),
+                RecomendPlantCard(
+                    image: "assets/images/image_1.png",
+                    title: "samantha",
+                    country: "russia",
+                    price: 440,
+                    press: () {})
+              ],
+            ),
+          )
         ],
       ),
     );
