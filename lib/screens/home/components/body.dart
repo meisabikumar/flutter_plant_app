@@ -18,10 +18,66 @@ class Body extends StatelessWidget {
       child: Column(
         children: [
           HeaderWithSearch(size: size),
-          TitleWiteMoreBtn(
-            press: () {},
-            title: 'Recomended',
-          ),
+          TitleWiteMoreBtn(press: () {}, title: 'Recomended'),
+
+          // 40% of width
+          Container(
+            width: size.width * 0.4,
+            margin: const EdgeInsets.only(
+              left: kDefaultPadding,
+              top: kDefaultPadding / 2,
+              bottom: kDefaultPadding * 2.5,
+            ),
+            child: Column(
+              children: [
+                Image.asset("assets/images/image_1.png"),
+                Container(
+                  padding: const EdgeInsets.all(kDefaultPadding / 2),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                          offset: const Offset(0, 10),
+                          blurRadius: 50,
+                          color: kPrimaryColor.withOpacity(0.23)),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Samantha\n".toUpperCase(),
+                              style: Theme.of(context).textTheme.button,
+                            ),
+                            TextSpan(
+                              text: "Russia".toUpperCase(),
+                              style: TextStyle(
+                                color: kPrimaryColor.withOpacity(0.5),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Spacer(),
+                      Text(
+                        "\$440",
+                        style: Theme.of(context)
+                            .textTheme
+                            .button!
+                            .copyWith(color: kPrimaryColor),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
