@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:plant_app/constans.dart';
 import 'package:plant_app/screens/details/components/icon_card.dart';
+import 'package:plant_app/screens/details/components/image_and_icons.dart';
 
 class DetailBody extends StatelessWidget {
   const DetailBody({Key? key}) : super(key: key);
@@ -9,68 +10,68 @@ class DetailBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Column(
-      children: [
-        SizedBox(
-          height: size.height * 0.8,
-          child: Row(
-            children: [
-              // left icons container
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: kDefaultPadding * 3,
-                  ),
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: IconButton(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: kDefaultPadding,
-                          ),
-                          icon: SvgPicture.asset("assets/icons/back_arrow.svg"),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ),
-                      const Spacer(),
-                      const IconCard(icon: "assets/icons/sun.svg"),
-                      const IconCard(icon: "assets/icons/icon_2.svg"),
-                      const IconCard(icon: "assets/icons/icon_3.svg"),
-                      const IconCard(icon: "assets/icons/icon_4.svg"),
-                    ],
-                  ),
-                ),
-              ),
-              // right image
-              Container(
-                height: size.height * 0.8,
-                width: size.width * 0.75,
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(63),
-                    bottomLeft: Radius.circular(63),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: const Offset(0, 10),
-                      blurRadius: 60,
-                      color: kPrimaryColor.withOpacity(0.29),
-                    )
-                  ],
-                  image: const DecorationImage(
-                    alignment: Alignment.centerLeft,
-                    fit: BoxFit.cover,
-                    image: AssetImage("assets/images/img.png"),
-                  ),
-                ),
-              )
-            ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          ImageAndIcons(size: size),
+          TitleAndPrice(
+            country: 'Russia',
+            price: 400,
+            title: 'Angelica',
           ),
-        )
-      ],
+        ],
+      ),
+    );
+  }
+}
+
+class TitleAndPrice extends StatelessWidget {
+  const TitleAndPrice({
+    Key? key,
+    required this.title,
+    required this.country,
+    required this.price,
+  }) : super(key: key);
+
+  final String title, country;
+  final int price;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+      child: Row(
+        children: [
+          RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "$title\n",
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline4!
+                      .copyWith(color: kTextColor, fontWeight: FontWeight.bold),
+                ),
+                TextSpan(
+                  text: country,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: kPrimaryColor,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Spacer(),
+          Text(
+            "\$$price",
+            style: Theme.of(context).textTheme.headline5!.copyWith(
+                  color: kPrimaryColor,
+                ),
+          ),
+        ],
+      ),
     );
   }
 }
