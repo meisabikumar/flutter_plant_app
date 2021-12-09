@@ -20,7 +20,8 @@ class Body extends StatelessWidget {
         children: [
           HeaderWithSearch(size: size),
           TitleWiteMoreBtn(press: () {}, title: 'Recomended'),
-          RecomendsPlants()
+          RecomendsPlants(),
+          TitleWiteMoreBtn(press: () {}, title: 'Features'),
         ],
       ),
     );
