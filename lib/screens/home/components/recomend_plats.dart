@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plant_app/screens/details/details_screen.dart';
 
 import '../../../constans.dart';
 
@@ -14,23 +15,47 @@ class RecomendsPlants extends StatelessWidget {
       child: Row(
         children: [
           RecomendPlantCard(
-              image: "assets/images/image_1.png",
-              title: "samantha",
-              country: "russia",
-              price: 440,
-              press: () {}),
+            image: "assets/images/image_1.png",
+            title: "samantha",
+            country: "russia",
+            price: 440,
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(),
+                ),
+              );
+            },
+          ),
           RecomendPlantCard(
-              image: "assets/images/image_2.png",
-              title: "samantha",
-              country: "russia",
-              price: 440,
-              press: () {}),
+            image: "assets/images/image_2.png",
+            title: "samantha",
+            country: "russia",
+            price: 440,
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(),
+                ),
+              );
+            },
+          ),
           RecomendPlantCard(
-              image: "assets/images/image_3.png",
-              title: "samantha",
-              country: "russia",
-              price: 440,
-              press: () {})
+            image: "assets/images/image_3.png",
+            title: "samantha",
+            country: "russia",
+            price: 440,
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(),
+                ),
+              );
+            },
+          )
         ],
       ),
     );
@@ -49,7 +74,7 @@ class RecomendPlantCard extends StatelessWidget {
 
   final String image, title, country;
   final int price;
-  final Function press;
+  final VoidCallback press;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +90,7 @@ class RecomendPlantCard extends StatelessWidget {
         children: [
           Image.asset(image),
           GestureDetector(
-            // onTap: press,
+            onTap: press,
             child: Container(
               padding: const EdgeInsets.all(kDefaultPadding / 2),
               decoration: BoxDecoration(
