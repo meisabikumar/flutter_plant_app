@@ -10,13 +10,13 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      appBar: buildAppBar(),
       body: Body(),
       bottomNavigationBar: MyBottomNavBar(),
     );
   }
 
-  AppBar appBar() {
+  AppBar buildAppBar() {
     return AppBar(
       elevation: 0,
       leading: IconButton(
