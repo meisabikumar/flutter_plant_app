@@ -21,7 +21,7 @@ class TitleWiteMoreBtn extends StatelessWidget {
           TitleWithCustomUnderline(
             text: title,
           ),
-          Spacer(),
+          const Spacer(),
           TextButton(
             onPressed: () {},
             child: const Text(
@@ -54,7 +54,7 @@ class TitleWithCustomUnderline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 24,
       child: Stack(
         children: [

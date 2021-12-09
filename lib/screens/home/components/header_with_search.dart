@@ -14,7 +14,7 @@ class HeaderWithSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: kDefaultPadding),
+      margin: const EdgeInsets.only(bottom: kDefaultPadding),
       // 20% of total height
       height: size.height * 0.2,
       // color: Colors.black,

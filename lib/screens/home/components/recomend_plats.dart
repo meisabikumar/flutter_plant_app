@@ -23,7 +23,7 @@ class RecomendsPlants extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailsScreen(),
+                  builder: (context) => const DetailsScreen(),
                 ),
               );
             },
@@ -37,7 +37,7 @@ class RecomendsPlants extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailsScreen(),
+                  builder: (context) => const DetailsScreen(),
                 ),
               );
             },
@@ -51,7 +51,7 @@ class RecomendsPlants extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailsScreen(),
+                  builder: (context) => const DetailsScreen(),
                 ),
               );
             },
@@ -116,7 +116,7 @@ class RecomendPlantCard extends StatelessWidget {
                           style: Theme.of(context).textTheme.button,
                         ),
                         TextSpan(
-                          text: "$country".toUpperCase(),
+                          text: country.toUpperCase(),
                           style: TextStyle(
                             color: kPrimaryColor.withOpacity(0.5),
                           ),
@@ -124,7 +124,7 @@ class RecomendPlantCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     "\$$price",
                     style: Theme.of(context)
